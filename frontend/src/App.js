@@ -142,12 +142,9 @@ class App extends React.Component {
 				
 					{//<NavBar state={this.state} isLogged={this.state.isLogged}  onLogout={this.onLogout}  />
 					}
-					
+					<NavBar categories={this.props.categories} category={this.setCategory}/>
 					<Switch>
 						
-						<Route exact path="/" render={() => (
-							<NavBar categories={this.props.categories} category={this.setCategory}/>
-						)} />
 						<Route path="/list" render={() => (
 
 							<ProductList list={this.state.category} basket={this.addToBasket} text="Add to" label="Products" />

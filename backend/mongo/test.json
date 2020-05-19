@@ -1,0 +1,189 @@
+{
+	"date": "2020-04-17",
+	"lang": "en",
+	"categories": [
+		{
+			"categoryName": "Food",
+			"categoryId": "4d25b6d3-f971-45cb-94b0-1479dd516f4d",
+			"description": "default english food description",
+			"subCategories": [
+				{
+					"subCategoryName": "Vegetables",
+					"subCategoryId": "4bc61eef-f3d8-49ee-b93e-59fcc88267fc",
+					"products": [
+						{
+							"subCategoryName": "Vegetables",
+							"categoryName": "Food",
+							"productId": "c5f17f06-61d1-4d6a-93b2-ca492d775eca",
+							"price": 2.55,
+							"priceType": 1,
+							"priceTypeText": "eur",
+							"name": "Cucumber",
+							"quantity": 51,
+							"description": "Cucumber  description",
+							"image": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Cucumber_BNC.jpg"
+						},
+						{
+							"subCategoryName": "Vegetables",
+							"categoryName": "Food",
+							"productId": "03e0657c-826c-47db-b7a9-d99ad8db8317",
+							"price": 2.55,
+							"priceType": 1,
+							"priceTypeText": "eur",
+							"name": "Cabbage",
+							"quantity": 51,
+							"description": "Cabbage Description here, some text ",
+							"image": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Cabbage_and_cross_section_on_white.jpg"
+						}
+					],
+					"description": "SubCategoryDescription for vegetables"
+				},
+				{
+					"subCategoryName": "Breads",
+					"subCategoryId": "0dc7c647-b69f-4b53-bfd3-efab6035801a",
+					"products": [
+						{
+							"subCategoryName": "Breads",
+							"categoryName": "Food",
+							"productId": "31f01c23-8b6c-4727-a4cb-b7e28d85766f",
+							"price": 2.55,
+							"priceType": 1,
+							"priceTypeText": "eur",
+							"name": "Oat bread",
+							"quantity": 51,
+							"description": "Oat bread description",
+							"image": "https://upload.wikimedia.org/wikipedia/commons/0/01/Kauras%C3%A4mpyl%C3%A4_and_kaurapala_-_1.JPG"
+						},
+						{
+							"subCategoryName": "Breads",
+							"categoryName": "Food",
+							"productId": "6102b473-b60f-4322-b1b8-cad4ef96c46d",
+							"price": 2.55,
+							"priceType": 1,
+							"priceTypeText": "eur",
+							"name": "Rye bread",
+							"quantity": 51,
+							"description": "Rye breadDescription",
+							"image": "https://upload.wikimedia.org/wikipedia/commons/7/74/Reik%C3%A4leip%C3%A4_view_from_above.jpg"
+						}
+					],
+					"description": "SubCategoryDescription for breads"
+				}
+			]
+		},
+		{
+			"categoryName": "Clothes",
+			"categoryId": "d4c86574-23f5-4440-8c36-337cbff9b9a2",
+			"description": "default english clothes description",
+			"subCategories": [
+				{
+					"subCategoryName": "jackets",
+					"subCategoryId": "162591e6-fb51-4820-b1c3-633275be9308",
+					"products": [
+						{
+							"subCategoryName": "jackets",
+							"categoryName": "Clothes",
+							"productId": "2b49d890-200f-492a-9f15-0a6066f1c928",
+							"price": 4.29,
+							"priceType": 1,
+							"priceTypeText": "eur",
+							"name": "SportJacket",
+							"quantity": 62,
+							"description": "SportJacket description here, this is very long description. this is very long description. this is very long description. this is very long description.",
+							"image": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Tailored_sport_coat_partial_lining.jpg"
+						},
+						{
+							"subCategoryName": "jackets",
+							"categoryName": "Clothes",
+							"productId": "a5eecf47-0135-4f28-9611-c33116f48d5c",
+							"price": 2.99,
+							"priceType": 1,
+							"priceTypeText": "eur",
+							"name": "Winter jacket",
+							"quantity": 1200,
+							"description": "Winter jacket description in english",
+							"image": "https://upload.wikimedia.org/wikipedia/commons/8/8e/FalatJulian.PortretAntoniegoWodzickiego.1900.ws.jpg"
+						}
+					],
+					"description": "Jackets general description"
+				}
+			]
+		},
+		{
+			"categoryName": "Shoes",
+			"categoryId": "54fda4a9-79ff-442b-b442-1ec0185d4dad",
+			"description": "default english shoes description",
+			"subCategories": [
+				{
+					"subCategoryName": "Sport",
+					"subCategoryId": "16c98270-b85a-480c-81a7-4fefcfb5da1e",
+					"products": [
+						{
+							"subCategoryName": "Sport",
+							"categoryName": "Shoes",
+							"productId": "46167c14-19b8-42bf-bf49-dd624ba7361e",
+							"price": 34.29,
+							"priceType": 1,
+							"priceTypeText": "eur",
+							"name": "Big shoe",
+							"quantity": 62,
+							"description": "Big shoe description here, this is very long description. this is very long description. this is very long description. this is very long description.",
+							"image": "https://upload.wikimedia.org/wikipedia/commons/5/55/Red_Wing_Shoe_Boot_Factory_32.jpg"
+						},
+						{
+							"subCategoryName": "Sport",
+							"categoryName": "Shoes",
+							"productId": "37cd69df-d3c8-4bfa-bd02-9c46dcf2fa8a",
+							"price": 42.99,
+							"priceType": 1,
+							"priceTypeText": "eur",
+							"name": "Little shoe",
+							"quantity": 120,
+							"description": "Little shoe description in english",
+							"image": "https://upload.wikimedia.org/wikipedia/commons/a/af/Stuffed_Cloth_Chinese_Shoe_Mold_for_Bound_Feet_%28cropped%29.jpg"
+						}
+					],
+					"description": "Shoes general description"
+				}
+			]
+		},
+		{
+			"categoryName": "Pets",
+			"categoryId": "1c73910f-b38d-4380-b002-5f89e40388f3",
+			"description": "default english pets description",
+			"subCategories": [
+				{
+					"subCategoryName": "reptiles",
+					"subCategoryId": "c8fb12e8-4a77-453c-913b-6f5730635705",
+					"products": [
+						{
+							"subCategoryName": "reptiles",
+							"categoryName": "Pets",
+							"productId": "3e98f57d-298c-4753-83b5-557191b2eea9",
+							"price": 84.29,
+							"priceType": 1,
+							"priceTypeText": "eur",
+							"name": "Python",
+							"quantity": 62,
+							"description": "Python description here, this is very long description. this is very long description. this is very long description. this is very long description.",
+							"image": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Pit%C3%B3n_de_la_India_%28Python_molurus%29%2C_Zoo_de_Ciudad_Ho_Chi_Minh%2C_Vietnam%2C_2013-08-14%2C_DD_08.JPG"
+						},
+						{
+							"subCategoryName": "reptiles",
+							"categoryName": "Pets",
+							"productId": "2e295304-3b81-4e45-ad33-561058f6f997",
+							"price": 2.99,
+							"priceType": 1,
+							"priceTypeText": "eur",
+							"name": "Frog",
+							"quantity": 1200,
+							"description": "Frog description in english",
+							"image": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Litoria_phyllochroa.JPG"
+						}
+					],
+					"description": "Reptiles general description"
+				}
+			]
+		}
+	]
+}

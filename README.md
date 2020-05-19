@@ -1,8 +1,7 @@
-FullStack projekti
+# FullStack projekti
 
-
-React
-NodeJS
-Redux
-MongoDB
+- React
+- NodeJS
+- Redux
+- MongoDB
 

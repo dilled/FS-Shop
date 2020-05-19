@@ -53,14 +53,14 @@ async function cashout(req, res, next) {
 		{}, function (err, databaseProducts) {
 			if (err) {
 				console.log("/cashout critical error:" + err)
-				httpErrorMessage = { status: 500, errorMessage: "internal server error -" }
+				httpErrorMessage = { status: 400, errorMessage: "something weird happened -" }
 			}
 
 			databaseProducts.forEach(databaseProduct => {
 				modifyToBuyableAndNotBuyableProducts(databaseProduct, productsFromInternet, productList)
 			})
 			let operationsArray = []
-			console.log("ProductsList:" + JSON.stringify(productList))
+			//console.log("ProductsList:" + JSON.stringify(productList))
 			productList.forEach((element) => {
 				if (element.buyable) {
 					let productId = element.productId
@@ -89,7 +89,7 @@ async function cashout(req, res, next) {
 				return res.status(200).json(filterBoughtItems(productList))
 			}).catch((err) => {
 				console.log("shopController: bulkwrite error" + err)
-				return res.status(500).json({ errorMessage: "Internal server error" })
+				return res.status(400).json({ errorMessage: "something weird just happened" })
 			})
 		})
 }

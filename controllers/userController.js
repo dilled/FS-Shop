@@ -4,7 +4,7 @@ let shopUtils = require('../common/shopUtils.js')
 let uuid = require('uuid-random');
 const bcrypt = require("bcrypt");
 const { validationResult } = require('express-validator')
-const SESSION_TIME = 1000 * 60 * 30 // 1hour session
+const SESSION_TIME = 1000 * 60 * 30 // 30 min session
 /**
  * Creates a user and inserts it to database if possible
  * */
@@ -24,14 +24,11 @@ exports.users_create_one = function (req, res, next) {
 			console.log('Email already exist in db:' + req.body.email)
 			return res.status(422).json({ message: "This email already exist" })
 		}
-
-
 		bcrypt.hash(req.body.password, 16, function (err, hash) {
 			if (err) {
 				console.log("Failed to hash password. Reason:" + err);
 				return res.status(422).json({ message: "please provide proper credentials" })
-			}
-			console.log("pw:" + req.body.password, " hashed:" + hash)
+			}		
 			let user = new userModel({
 				nickname: req.body.nickname,
 				email: req.body.email,
@@ -56,30 +53,30 @@ createToken = () => {
 	return uuid();
 }
 exports.user_login = function (req, res, next) {
-	console.log("Login: userController_userlogin email:" + req.body.email + "pw:" + req.body.password)
+	console.log("/userController  Login: email:" + req.body.email)
 	const errors = validationResult(req);
 	if (!errors.isEmpty()) {
-		console.log("Login: in was terminated by validation:" + JSON.stringify(errors));
+		console.log("/userController  Login: in was terminated by validation:" + JSON.stringify(errors));
 		return res.status(422).json({ errors: errors.array() });
 	}
-	console.log("Starting to search for email:" + req.body.email);
+	console.log("/userController Starting to search for email:" + req.body.email);
 	userModel.findOne({ "email": req.body.email }, function (err, userFromDB) {
 		if (err) {
-			console.log("Login:Failed to find user. Reason:" + err);
-			return res.status(403).json({ message: "Username or password incorrect1" })
+			console.log("/userController Login:Failed to find user. Reason:" + err);
+			return res.status(403).json({ message: "Username or password incorrect" })
 		}
 		if (!userFromDB) {
-			console.log("Login:Failed to find user. Reason:22");
-			return res.status(403).json({ message: "Username or password incorrect2" })
+			console.log("/userController Login:Failed to find user. Reason:22");
+			return res.status(403).json({ message: "Username or password incorrect" })
 		}
 		bcrypt.compare(req.body.password, userFromDB.password, function (err, success) {
 			if (err) {
-				console.log("Login:Failed in comparing passwords. Reason:" + err);
-				return res.status(403).json({ message: "Username or password incorrect3" })
+				console.log("/userController Login:Failed in comparing passwords. Reason:" + err);
+				return res.status(403).json({ message: "Username or password incorrect" })
 			}
 			if (!success) {
-				console.log("Login:Passwords did not match:");
-				return res.status(403).json({ message: "Username or password incorrect4" })
+				console.log("/userController Login:Passwords did not match:");
+				return res.status(403).json({ message: "Username or password incorrect" })
 			}
 			let token = createToken();
 			let temp = Date.now();
@@ -93,11 +90,11 @@ exports.user_login = function (req, res, next) {
 			})
 			session.save(function (err, session) {
 				if (err) {
-					console.log("Login:Session creation failed. Reason:" + err);
+					console.log("/userController Login:Session creation failed. Reason:" + err);
 					return res.status(403).json({ message: "Username or password incorrect5" })
 				}
 				req.session = { userName: session.userName, timestamp: session.timestamp, token: session.token }
-				console.log("Loginissa: sessio" + JSON.stringify(req.session))
+				//console.log("/userController Loginissa: sessio" + JSON.stringify(req.session))
 				return res.status(200).json({ token: token, nickname: userFromDB.nickname })
 			})
 		})
@@ -117,7 +114,7 @@ exports.logout = function (req, res, next) {
 
 	sessionModel.findOne({ "token": uuidFromInternets }, function (err, session) {
 		if (err) {
-			console.log("Failed to find session while logging out. Reason:" + err);
+			console.log("/userController Failed to find session while logging out. Reason:" + err);
 			return res.status(400).json({ message: "conflict" })
 		}
 		if (!session) {
@@ -125,7 +122,7 @@ exports.logout = function (req, res, next) {
 		}
 		sessionModel.deleteOne({ "token": session.token }, function (err) {
 			if (err) {
-				console.log("Exception in session deletion:" + err + " token:" + uuidFromInternets);
+				console.log("/userController Exception in session deletion:" + err + " token:" + uuidFromInternets);
 			}
 			return res.status(200).json({ message: "success" })
 		})
@@ -135,24 +132,24 @@ exports.logout = function (req, res, next) {
 exports.applyUser = function (req, res, next) {
 
 	if (shopUtils.validateUUIDFormat(req) == null) {
-		console.log("userController applyUser not valid token ")
+		console.log("/userController  applyUser not valid token ")
 		return next()
 	}
 	sessionModel.findOne({ "token": req.headers.token }, function (err, session) {
 		if (err) {
-			console.log("userController applyUser Failed to find session from userController. Reason:" + err);
+			console.log("/userController  applyUser Failed to find session from userController. Reason:" + err);
 			return next()
 		}
 		if (session === null || session === undefined) {
-			console.log("userController applyUser Sessiota ei löytynyt tokenilla " + req.headers.token)
+			console.log("/userController  applyUser Sessiota ei löytynyt tokenilla " + req.headers.token)
 			return next()
 		}
 		//Has session timed out?
 		let now = Date.now();
 		let ttl = session.ttl;
-		console.log("userController applyUser  time comparison:" + now + " ttl:" + ttl + " alive:" + (ttl > now))
+		console.log("/userController  applyUser  time comparison:" + now + " ttl:" + ttl + " alive:" + (ttl > now))
 		if (ttl < now) {
-			console.log("userController session has expired  with token " + req.headers.token)
+			console.log("/userController  session has expired  with token " + req.headers.token)
 			req.session = {}
 			req.session = null
 			return next();
@@ -165,11 +162,11 @@ exports.applyUser = function (req, res, next) {
 				{ "token": req.headers.token }, // Filter
 				{ $set: { "ttl": session.ttl } } // Update
 			).then((updatedDBSession) => {
-				console.log("Updated:"+session.ttl+" - " + JSON.stringify(updatedDBSession));
+				//console.log("/userController Updated session time:"+session.ttl)
 				req.session.user = { userName: session.userName, timestamp: session.timestamp, token: session.token }
 				return next()
 			}).catch((err) => {
-				console.log("userController session saving error ")
+				console.log("/userController session saving error ")
 				req.session = null
 				return next()
 			})

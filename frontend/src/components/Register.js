@@ -56,21 +56,21 @@ class Register extends React.Component {
 			<Form onSubmit={this.submit}>
 				<Header as='h2'>Register account</Header>				
 				<Form.Field>	
-					<label htmlFor="nickname">Nickname</label>
+					<label htmlFor="nickname">Nickname(4 characters)</label>
 					<input type="text"
 							name="nickname"
 							onChange={this.onChange}
 							value={this.state.nickname}/>
 				</Form.Field>
 				<Form.Field>	
-					<label htmlFor="nickname">Email</label>
+					<label htmlFor="nickname">Email(valid email)</label>
 					<input type="text"
 							name="email"
 							onChange={this.onChange}
 							value={this.state.email}/>
 				</Form.Field>
 				<Form.Field>
-					<label htmlFor="password">Password</label>
+					<label htmlFor="password">Password(8 characters + special)</label>
 					<input type="password"
 							name="password"
 							value={this.state.password}

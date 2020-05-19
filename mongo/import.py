@@ -1,7 +1,7 @@
 import json
 from pymongo import MongoClient
 
-client = MongoClient('localhost', 27017)
+client = MongoClient('mongodb+srv://test:test@cluster0-n6nfv.mongodb.net/test')
 db = client['fs-shop']
 
 with open('test.json') as f:

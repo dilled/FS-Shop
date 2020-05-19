@@ -4,7 +4,7 @@ const parser = require("body-parser")
 var userRouter = require('./routes/usersRouter');
 var shopRouter = require('./routes/shopRouter');
 var productRouter = require('./routes/product')
-var mongoDB = 'mongodb+srv://test:test@cluster0-n6nfv.gcp.mongodb.net/test?retryWrites=true&w=majority';
+var mongoDB = 'mongodb+srv://test:test@cluster0-n6nfv.mongodb.net/test?retryWrites=true&w=majority';
 var userController = require('./controllers/userController.js')
 var mongoose = require('mongoose');
 

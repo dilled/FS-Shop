@@ -142,9 +142,12 @@ class App extends React.Component {
 				
 					{//<NavBar state={this.state} isLogged={this.state.isLogged}  onLogout={this.onLogout}  />
 					}
-					<NavBar categories={this.props.categories} category={this.setCategory}/>
+					
 					<Switch>
 						
+						<Route exact path="/" render={() => (
+							<NavBar categories={this.props.categories} category={this.setCategory}/>
+						)} />
 						<Route path="/list" render={() => (
 
 							<ProductList list={this.state.category} basket={this.addToBasket} text="Add to" label="Products" />
@@ -152,18 +155,18 @@ class App extends React.Component {
 						)} />
 						<Route path="/login" render={() => (
 							this.props.isLogged ?
-								<Redirect to="/list" /> :
+								<Redirect to="/" /> :
 								<Login onLogin={this.onLogin} />
 						)} />
 						<Route path="/register" render={() => (
 							this.props.isLogged ?
-								<Redirect to="/list" /> :
+								<Redirect to="/" /> :
 								<Register onRegister={this.onRegister} />
 						)} />
 						<Route path="/purchase" render={() => (
 							this.props.isLogged ?
 								<Purchase onPurchase={this.onPurchase} list={this.state.basket} basket={this.removeFromBasket} text="Remove from" /> :
-								<Redirect to="/list" />
+								<Redirect to="/" />
 						)} />
 					</Switch>
 					<Basket list={this.state.basket} basket={this.removeFromBasket} isLogged={this.props.isLogged} />

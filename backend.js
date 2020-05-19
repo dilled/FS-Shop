@@ -15,6 +15,9 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 let app = express()
 app.use(parser.json())
 
+var distDir = __dirname + "/build/";
+app.use(express.static(distDir));
+
 app.use('/*', function (req, res, next) {
     userController.applyUser(req, res, next);
 })

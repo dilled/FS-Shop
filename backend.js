@@ -8,7 +8,7 @@ var mongoDB = 'mongodb+srv://test:test@cluster0-n6nfv.gcp.mongodb.net/test?retry
 var userController = require('./controllers/userController.js')
 var mongoose = require('mongoose');
 
-mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
+mongoose.connect(mongoDB, { dbName:'fs-shop', useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 

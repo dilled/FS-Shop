@@ -1,9 +1,8 @@
-#FullStack projekti.........
-Valitut teknologiat
+FullStack projekti
 
 
-UI -> ReactJS
-Frontend -> redux
-Backend -> NodeJS 
-Tietokanta -> MongoDB
-![test](./images/products.png)
+React
+NodeJS
+Redux
+MongoDB
+

@@ -28,7 +28,10 @@ app.use('/shop/api', shopRouter)
 
 
 
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3002;
+}
 
-let port = process.env.PORT || 3002
 console.log("Waiting incoming requests on port:" + port);
 app.listen(port);

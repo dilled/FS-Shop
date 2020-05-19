@@ -152,18 +152,18 @@ class App extends React.Component {
 						)} />
 						<Route path="/login" render={() => (
 							this.props.isLogged ?
-								<Redirect to="/" /> :
+								<Redirect to="/list" /> :
 								<Login onLogin={this.onLogin} />
 						)} />
 						<Route path="/register" render={() => (
 							this.props.isLogged ?
-								<Redirect to="/" /> :
+								<Redirect to="/list" /> :
 								<Register onRegister={this.onRegister} />
 						)} />
 						<Route path="/purchase" render={() => (
 							this.props.isLogged ?
 								<Purchase onPurchase={this.onPurchase} list={this.state.basket} basket={this.removeFromBasket} text="Remove from" /> :
-								<Redirect to="/" />
+								<Redirect to="/list" />
 						)} />
 					</Switch>
 					<Basket list={this.state.basket} basket={this.removeFromBasket} isLogged={this.props.isLogged} />

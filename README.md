@@ -1,7 +1,11 @@
-# FullStack projekti
+# FS-Shop
+
+## FullStack projektissa käytetyt tekniikat:
 
 - React
 - NodeJS
+- Express
 - Redux
-- MongoDB
+- MongoDB atlas
+- heroku
 

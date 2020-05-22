@@ -15,7 +15,7 @@
 - Redux
 - MongoDB atlas
 - Mongoose
-- Heroku
+- Heroku        https://secret-sands-09027.herokuapp.com/
 - Git (GitHub)
 
 Version numbers can be read from package.json
